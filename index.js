@@ -14,6 +14,10 @@ app.use(router);
 
 (tryDatabaseConnection)();
 
-app.listen(PORT, () => {
-  console.log(`Projeto integrador funcionando e ouvindo na porta ${PORT}`)
-})
+if(process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`Projeto integrador funcionando e ouvindo na porta ${PORT}`)
+  })
+}
+
+module.exports = app

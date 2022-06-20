@@ -105,9 +105,11 @@ async function tryDatabaseConnection() {
 
             break;
         } catch (err) {
-            console.log(`[DB] Retrying connection to database: ${retryNumber}/${MAX_CONNECTION_RETRY_COUNT}`);
-            console.log(err.parent);
-            await sleep(RETRY_CONNECTION_TIMER);
+            if(process.env.NODE_ENV !== 'test') {
+                console.log(`[DB] Retrying connection to database: ${retryNumber}/${MAX_CONNECTION_RETRY_COUNT}`);
+                console.log(err.parent);
+                await sleep(RETRY_CONNECTION_TIMER);
+            }
         }
     }
 }
