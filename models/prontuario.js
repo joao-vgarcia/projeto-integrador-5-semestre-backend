@@ -10,12 +10,12 @@ const Prontuario = database.define('prontuario', {
         primaryKey: true
     },
     paciente_id: {
-      type: Sequelize.INTEGER,
-      references: {
-          model: Paciente,
-          key: 'id',
-      }
-    },  
+        type: Sequelize.INTEGER,
+        references: {
+            model: Paciente,
+            key: 'id',
+        }
+    },
     sintomas: {
         type: Sequelize.TEXT,
     },

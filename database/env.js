@@ -1,4 +1,4 @@
-const dummyEnv = require('./dummyEnv');
+const dummyEnv = process.env.DEBUG === 'true' ? require('./dummyEnv') : require('./dummyEnv.example');
 module.exports = {
     MYSQL_HOST: process.env.DB_HOST || dummyEnv.MYSQL_HOST,
     MYSQL_USER: process.env.DB_USER || dummyEnv.MYSQL_USER,
